@@ -76,11 +76,11 @@ else
 			send_markdownv2_mesage "${CHAT[ID]}" "This bot will *not* kick you!"
 			return 1
 			;;
-		'/start')
+		'/start'*)
 			send_normal_message "noU"
 			return 1
 			;;
-		'/help')
+		'/help'*)
 			send_normal_message "This bot can't help with your life, seriously."
 			return 1
 			;;
