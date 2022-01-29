@@ -175,7 +175,6 @@ else
 					| tr -d '\n' \
 					| tr -d ' '
 			)
-			send_normal_message "here:" # $latest
 			send_markdown_message "${CHAT[ID]}" "[Latest stable](${latest})\n[Latest canary](https://raw.githubusercontent.com/topjohnwu/magisk-files/canary/app-debug.apk)"
 			unset latest
 			;;
