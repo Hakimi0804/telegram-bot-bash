@@ -76,6 +76,14 @@ else
 			send_markdownv2_mesage "${CHAT[ID]}" "This bot will *not* kick you!"
 			return 1
 			;;
+		'/start')
+			send_normal_message "noU"
+			return 1
+			;;
+		'/help')
+			send_normal_message "This bot can't help with your life, seriously."
+			return 1
+			;;
 		'.calc'*)
 			tocalc="${MESSAGE#.calc}"
 			calced=$(echo "${tocalc}" | bc -l)
@@ -146,9 +154,6 @@ else
 				send_normal_message "${CHAT[ID]}" "${msg}"
 			done
 			unset repeat msg
-			;;
-		'.help'*)
-			send_normal_message "${CHAT[ID]}" "Memek lo"
 			;;
 		'.ilmu'*)
 			# laki_og_group_id=-1001296316951
