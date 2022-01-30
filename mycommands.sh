@@ -216,13 +216,13 @@ else
 
     # example inline processing function, not really useful
     # $1 search parameter
-#     round() {
-# 	# round function made by github copilot
-# 	# usage: round <number> <decimal places>
-# 	# example: round 1.2345 2
-# 	# returns: 1.23
-# 	echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc));
-# 	}
+    round() {
+	# round function made by github copilot
+	# usage: round <number> <decimal places>
+	# example: round 1.2345 2
+	# returns: 1.23
+	echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc));
+	}
     my_image_search(){
 	local image result sep="" count="1"
 	result="$(wget --user-agent 'Mozilla/5.0' -qO - "https://images.search.yahoo.com/search/images?p=$1" |  sed 's/</\n</g' | grep "<img src=")"
