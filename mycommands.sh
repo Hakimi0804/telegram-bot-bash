@@ -68,10 +68,10 @@ else
 		# command overwrite examples
 		# return 0 -> run default command afterwards
 		# return 1 -> skip possible default commands
-		'.info'*) # output date in front of regular info
-			send_normal_message "${CHAT[ID]}" "$(date)"
-			return 0
-			;;
+		# '.info'*) # output date in front of regular info
+		# 	send_normal_message "${CHAT[ID]}" "$(date)"
+		# 	return 0
+		# 	;;
 		'.kickme'*) # this will replace the /kickme command
 			send_markdownv2_mesage "${CHAT[ID]}" "This bot will *not* kick you!"
 			return 1
@@ -80,10 +80,10 @@ else
 			send_normal_message "noU"
 			return 1
 			;;
-		'/help'*)
-			send_normal_message "This bot can't help with your life, seriously."
-			return 1
-			;;
+		# '/help'*)
+		# 	send_normal_message "This bot can't help with your life, seriously."
+		# 	return 1
+		# 	;;
 		'.calc'*)
 			tocalc="${MESSAGE#.calc}"
 			calced=$(echo "${tocalc}" | bc -l)
@@ -103,15 +103,15 @@ else
 		# 		send_normal_message "${CHAT[ID]}" "Not enough arguement(s)"
 		# 	fi
 		# 	;;
-		'.del'*)
-			if [ -z "${REPLYTO[ID]}" ]; then
-				send_normal_message "${CHAT[ID]}" "Please reply to a message first!"
-			else
-				delete_message "${CHAT[ID]}" "${REPLYTO[ID]}"
-				delete_message "${CHAT[ID]}" "${MESSAGE[ID]}"
-				send_normal_message "${CHAT[ID]}" "Message with ID: ${REPLYTO[ID]} deleted!"
-			fi
-			;;
+		# '.del'*)
+		# 	if [ -z "${REPLYTO[ID]}" ]; then
+		# 		send_normal_message "${CHAT[ID]}" "Please reply to a message first!"
+		# 	else
+		# 		delete_message "${CHAT[ID]}" "${REPLYTO[ID]}"
+		# 		delete_message "${CHAT[ID]}" "${MESSAGE[ID]}"
+		# 		send_normal_message "${CHAT[ID]}" "Message with ID: ${REPLYTO[ID]} deleted!"
+		# 	fi
+		# 	;;
 		# '.upload'*)
 		# 	# upload file in ~/Downloads/empty/
 		# 	# Check if the folder is empty
@@ -132,19 +132,19 @@ else
 			send_message "${channel_id}" "${MESSAGE#.send_ch}"
 			send_normal_message "${CHAT[ID]}" "Message sent to channel"
 			;;
-		'.purge'*)
-			# get replied message id and purge in between
-			replied_message_id=${REPLYTO[ID]}
-			message_id=${MESSAGE[ID]}
-			if [ -z "$replied_message_id" ]; then
-				send_normal_message "${CHAT[ID]}" "Please reply to a message first!"
-			else
-				for ((message=replied_message_id; message<=message_id; message++)); do
-					delete_message "${CHAT[ID]}" "${message}"
-				done
-			fi
-			send_normal_message "Slow af purge complete."
-			;;
+		# '.purge'*)
+		# 	# get replied message id and purge in between
+		# 	replied_message_id=${REPLYTO[ID]}
+		# 	message_id=${MESSAGE[ID]}
+		# 	if [ -z "$replied_message_id" ]; then
+		# 		send_normal_message "${CHAT[ID]}" "Please reply to a message first!"
+		# 	else
+		# 		for ((message=replied_message_id; message<=message_id; message++)); do
+		# 			delete_message "${CHAT[ID]}" "${message}"
+		# 		done
+		# 	fi
+		# 	send_normal_message "Slow af purge complete."
+		# 	;;
 		'.spam'*)
 			# Same as echo but repeats the message
 			repeat=15
